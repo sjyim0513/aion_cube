@@ -955,4 +955,12 @@ export const locations: Location[] = [
     imageUrl: "/images/locations-webp/123.webp",
     description: "절벽 위",
   },
+  {
+    id: "124",
+    type: "g",
+    x: 67.5,
+    y: 58.9,
+    imageUrl: "/images/locations-webp/124.webp",
+    description: "공중섬 위",
+  },
 ];
