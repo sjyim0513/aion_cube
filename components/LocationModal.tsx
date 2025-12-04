@@ -53,7 +53,7 @@ function LocationModal({ location, onClose }: LocationModalProps) {
                 // 이미지 로드 실패 시 플레이스홀더 표시
                 const target = e.target as HTMLImageElement;
                 target.src =
-                  'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect fill="%23ddd" width="400" height="300"/%3E%3Ctext fill="%23999" font-family="sans-serif" font-size="20" x="50%25" y="50%25" text-anchor="middle" dy=".3em"%3E이미지 준비중%3C/text%3E%3C/svg%3E';
+                  'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect fill="%23ddd" width="400" height="300"/%3E%3Ctext fill="%23999" font-family="sans-serif" font-size="20" x="50%25" y="50%25" text-anchor="middle" dy=".3em"%3E사진은 못 찍었지만 나옴%3C/text%3E%3C/svg%3E';
               }}
             />
           </div>
