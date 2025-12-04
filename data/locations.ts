@@ -791,4 +791,11 @@ export const locations: Location[] = [
     y: 61.8,
     imageUrl: "/images/locations-webp/101.webp",
   },
+  {
+    id: "102",
+    type: "w",
+    x: 59.55,
+    y: 62.85,
+    imageUrl: "/images/locations-webp/102.webp",
+  },
 ];
