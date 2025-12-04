@@ -18,7 +18,7 @@ export default function MarkerIcon({
   const minScale = 1;
   const maxScale = 8;
   const minSize = 15; // 축소 시
-  const maxSize = 4; // 최대 확대 시
+  const maxSize = 3; // 최대 확대 시
 
   // scale을 1~8 범위로 제한
   const clampedScale = Math.max(minScale, Math.min(maxScale, scale));

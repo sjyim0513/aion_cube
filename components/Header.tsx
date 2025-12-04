@@ -24,7 +24,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* 타이틀 */}
           <h1 className="text-xl font-bold">
-            쉬었음 청년들을 위한 큐브 지도 V1.1
+            쉬었음 청년들을 위한 큐브 지도 V1.2
           </h1>
           {/* 메뉴바 */}
           <nav className="flex items-center gap-6">

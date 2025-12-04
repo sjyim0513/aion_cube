@@ -11,6 +11,8 @@ import {
 import { Location } from "@/types/location";
 import MapMarker from "./MapMarker";
 import LocationModal from "./LocationModal";
+import TipsModal from "./TipsModal";
+import CubeInfoModal from "./CubeInfoModal";
 
 interface MapProps {
   mapImageUrl: string;
@@ -26,6 +28,8 @@ export default function Map({ mapImageUrl, locations }: MapProps) {
     null
   );
   const [showGrid, setShowGrid] = useState(false);
+  const [showTips, setShowTips] = useState(false);
+  const [showCubeInfo, setShowCubeInfo] = useState(false);
   const [mousePosition, setMousePosition] = useState<{
     x: number;
     y: number;
@@ -195,6 +199,18 @@ export default function Map({ mapImageUrl, locations }: MapProps) {
         >
           리셋
         </button>
+        <button
+          onClick={() => setShowCubeInfo(true)}
+          className="bg-purple-500 text-white px-4 py-2 rounded shadow-lg hover:bg-purple-600 text-sm"
+        >
+          큐브 팁
+        </button>
+        <button
+          onClick={() => setShowTips(true)}
+          className="bg-blue-500 text-white px-4 py-2 rounded shadow-lg hover:bg-blue-600 text-sm"
+        >
+          사용 팁
+        </button>
       </div>
 
       {/* 마우스 좌표 표시 */}
@@ -291,6 +307,12 @@ export default function Map({ mapImageUrl, locations }: MapProps) {
       {selectedLocation && (
         <LocationModal location={selectedLocation} onClose={handleCloseModal} />
       )}
+
+      {/* 팁 모달 */}
+      {showTips && <TipsModal onClose={() => setShowTips(false)} />}
+
+      {/* 큐브 정보 모달 */}
+      {showCubeInfo && <CubeInfoModal onClose={() => setShowCubeInfo(false)} />}
     </div>
   );
 }
