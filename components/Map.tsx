@@ -1,6 +1,13 @@
 "use client";
 
-import { useState, useRef, MouseEvent, WheelEvent } from "react";
+import {
+  useState,
+  useRef,
+  MouseEvent,
+  WheelEvent,
+  useCallback,
+  useMemo,
+} from "react";
 import { Location } from "@/types/location";
 import MapMarker from "./MapMarker";
 import LocationModal from "./LocationModal";
@@ -25,6 +32,8 @@ export default function Map({ mapImageUrl, locations }: MapProps) {
   } | null>(null);
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const outerContainerRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number | null>(null);
+  const lastMousePositionRef = useRef<{ x: number; y: number } | null>(null);
 
   // 스크롤로 확대/축소 (마우스 위치 중심)
   const handleWheel = (e: WheelEvent<HTMLDivElement>) => {
@@ -75,52 +84,74 @@ export default function Map({ mapImageUrl, locations }: MapProps) {
     });
   };
 
-  // 드래그 중
-  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
-    if (!isDragging) {
-      // 그리드가 켜져있을 때만 좌표 표시
-      if (showGrid && outerContainerRef.current && mapContainerRef.current) {
-        const outerRect = outerContainerRef.current.getBoundingClientRect();
-        const mouseX = e.clientX - outerRect.left;
-        const mouseY = e.clientY - outerRect.top;
+  // 마우스 좌표 계산 함수 (requestAnimationFrame으로 최적화)
+  const calculateMousePosition = useCallback(
+    (clientX: number, clientY: number) => {
+      if (!showGrid || !outerContainerRef.current || !mapContainerRef.current) {
+        setMousePosition(null);
+        return;
+      }
 
-        // 지도 컨테이너의 실제 크기 (변환 전)
-        const mapRect = mapContainerRef.current.getBoundingClientRect();
-        const containerWidth = mapRect.width / scale;
-        const containerHeight = mapRect.height / scale;
+      const outerRect = outerContainerRef.current.getBoundingClientRect();
+      const mouseX = clientX - outerRect.left;
+      const mouseY = clientY - outerRect.top;
 
-        // 마우스 위치를 지도 컨테이너 기준으로 변환
-        const relativeX = (mouseX - position.x) / scale;
-        const relativeY = (mouseY - position.y) / scale;
+      // 마우스 위치가 크게 변하지 않으면 업데이트 스킵
+      if (lastMousePositionRef.current) {
+        const deltaX = Math.abs(mouseX - lastMousePositionRef.current.x);
+        const deltaY = Math.abs(mouseY - lastMousePositionRef.current.y);
+        if (deltaX < 2 && deltaY < 2) return; // 2px 이하 변화는 무시
+      }
 
-        // 퍼센트 계산
-        const percentX = (relativeX / containerWidth) * 100;
-        const percentY = (relativeY / containerHeight) * 100;
+      lastMousePositionRef.current = { x: mouseX, y: mouseY };
 
-        if (
-          percentX >= 0 &&
-          percentX <= 100 &&
-          percentY >= 0 &&
-          percentY <= 100
-        ) {
-          setMousePosition({
-            x: Math.round(percentX * 10) / 10,
-            y: Math.round(percentY * 10) / 10,
-          });
-        } else {
-          setMousePosition(null);
-        }
+      const mapRect = mapContainerRef.current.getBoundingClientRect();
+      const containerWidth = mapRect.width / scale;
+      const containerHeight = mapRect.height / scale;
+
+      const relativeX = (mouseX - position.x) / scale;
+      const relativeY = (mouseY - position.y) / scale;
+
+      const percentX = (relativeX / containerWidth) * 100;
+      const percentY = (relativeY / containerHeight) * 100;
+
+      if (
+        percentX >= 0 &&
+        percentX <= 100 &&
+        percentY >= 0 &&
+        percentY <= 100
+      ) {
+        setMousePosition({
+          x: Math.round(percentX * 10) / 10,
+          y: Math.round(percentY * 10) / 10,
+        });
       } else {
-        // 그리드가 꺼져있으면 좌표 숨김
         setMousePosition(null);
       }
-    } else {
-      setPosition({
-        x: e.clientX - dragStart.x,
-        y: e.clientY - dragStart.y,
-      });
-    }
-  };
+    },
+    [showGrid, scale, position.x, position.y]
+  );
+
+  // 드래그 중
+  const handleMouseMove = useCallback(
+    (e: MouseEvent<HTMLDivElement>) => {
+      if (!isDragging) {
+        // requestAnimationFrame으로 최적화
+        if (rafRef.current) {
+          cancelAnimationFrame(rafRef.current);
+        }
+        rafRef.current = requestAnimationFrame(() => {
+          calculateMousePosition(e.clientX, e.clientY);
+        });
+      } else {
+        setPosition({
+          x: e.clientX - dragStart.x,
+          y: e.clientY - dragStart.y,
+        });
+      }
+    },
+    [isDragging, dragStart, calculateMousePosition]
+  );
 
   // 드래그 종료
   const handleMouseUp = () => {

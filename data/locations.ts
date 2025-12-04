@@ -6,14 +6,14 @@ export const locations: Location[] = [
     type: "g",
     x: 59.3,
     y: 56.3,
-    imageUrl: "/images/locations/1.jpg",
+    imageUrl: "/images/locations-webp/1.webp",
   },
   {
     id: "2",
     type: "g",
     x: 64.2,
     y: 59.8,
-    imageUrl: "/images/locations/2.jpg",
+    imageUrl: "/images/locations-webp/2.webp",
     description: "절벽 중간",
   },
   {
@@ -21,7 +21,7 @@ export const locations: Location[] = [
     type: "g",
     x: 64.7,
     y: 61,
-    imageUrl: "/images/locations/3.jpg",
+    imageUrl: "/images/locations-webp/3.webp",
     description: "절벽 중간",
   },
   {
@@ -29,21 +29,21 @@ export const locations: Location[] = [
     type: "w",
     x: 51.2,
     y: 57.7,
-    imageUrl: "/images/locations/4.jpg",
+    imageUrl: "/images/locations-webp/4.webp",
   },
   {
     id: "5",
     type: "g",
     x: 54.8,
     y: 68.4,
-    imageUrl: "/images/locations/5.jpg",
+    imageUrl: "/images/locations-webp/5.webp",
   },
   {
     id: "6",
     type: "g",
     x: 57,
     y: 73.2,
-    imageUrl: "/images/locations/6.jpg",
+    imageUrl: "/images/locations-webp/6.webp",
     description: "절벽 사이",
   },
   {
@@ -51,7 +51,7 @@ export const locations: Location[] = [
     type: "g",
     x: 30.6,
     y: 89.3,
-    imageUrl: "/images/locations/7.jpg",
+    imageUrl: "/images/locations-webp/7.webp",
     description: "신비로운 트랙 입장 위치",
   },
   {
@@ -59,7 +59,7 @@ export const locations: Location[] = [
     type: "g",
     x: 34.4,
     y: 86.6,
-    imageUrl: "/images/locations/8.jpg",
+    imageUrl: "/images/locations-webp/8.webp",
     description: "절벽 위",
   },
   {
@@ -67,7 +67,7 @@ export const locations: Location[] = [
     type: "g",
     x: 59.3,
     y: 59.3,
-    imageUrl: "/images/locations/9.jpg",
+    imageUrl: "/images/locations-webp/9.webp",
     description: "절벽 위",
   },
   {
@@ -75,7 +75,7 @@ export const locations: Location[] = [
     type: "g",
     x: 47,
     y: 49.8,
-    imageUrl: "/images/locations/10.jpg",
+    imageUrl: "/images/locations-webp/10.webp",
     description: "절벽 중간",
   },
   {
@@ -83,7 +83,7 @@ export const locations: Location[] = [
     type: "g",
     x: 44.5,
     y: 50.1,
-    imageUrl: "/images/locations/11.jpg",
+    imageUrl: "/images/locations-webp/11.webp",
     description: "절벽 중간",
   },
   {
@@ -91,7 +91,7 @@ export const locations: Location[] = [
     type: "g",
     x: 45.5,
     y: 29.5,
-    imageUrl: "/images/locations/12.jpg",
+    imageUrl: "/images/locations-webp/12.webp",
     description: "버섯 맨 위",
   },
   {
@@ -99,7 +99,7 @@ export const locations: Location[] = [
     type: "g",
     x: 46.5,
     y: 30.2,
-    imageUrl: "/images/locations/13.jpg",
+    imageUrl: "/images/locations-webp/13.webp",
     description: "버섯 위",
   },
   {
@@ -107,7 +107,7 @@ export const locations: Location[] = [
     type: "g",
     x: 47.6,
     y: 26.4,
-    imageUrl: "/images/locations/14.jpg",
+    imageUrl: "/images/locations-webp/14.webp",
     description: "절벽 중간",
   },
   {
@@ -115,7 +115,7 @@ export const locations: Location[] = [
     type: "g",
     x: 49.1,
     y: 36.5,
-    imageUrl: "/images/locations/15.jpg",
+    imageUrl: "/images/locations-webp/15.webp",
     description: "절벽 중간",
   },
   {
@@ -123,7 +123,7 @@ export const locations: Location[] = [
     type: "g",
     x: 51.2,
     y: 40.4,
-    imageUrl: "/images/locations/16.jpg",
+    imageUrl: "/images/locations-webp/16.webp",
     description: "성벽 망루 위",
   },
   {
@@ -131,7 +131,7 @@ export const locations: Location[] = [
     type: "g",
     x: 54.4,
     y: 36.3,
-    imageUrl: "/images/locations/17.jpg",
+    imageUrl: "/images/locations-webp/17.webp",
     description: "절벽 위",
   },
   {
@@ -139,7 +139,7 @@ export const locations: Location[] = [
     type: "g",
     x: 54,
     y: 23.7,
-    imageUrl: "/images/locations/18.jpg",
+    imageUrl: "/images/locations-webp/18.webp",
     description: "나무 위",
   },
   {
@@ -147,7 +147,7 @@ export const locations: Location[] = [
     type: "g",
     x: 52.1,
     y: 58.5,
-    imageUrl: "/images/locations/19.jpg",
+    imageUrl: "/images/locations-webp/19.webp",
     description: "나무 기둥 옆",
   },
   {
@@ -155,7 +155,7 @@ export const locations: Location[] = [
     type: "g",
     x: 60.4,
     y: 71.1,
-    imageUrl: "/images/locations/20.jpg",
+    imageUrl: "/images/locations-webp/20.webp",
     description: "절벽 위",
   },
   {
@@ -163,7 +163,7 @@ export const locations: Location[] = [
     type: "g",
     x: 67.7,
     y: 58.2,
-    imageUrl: "/images/locations/21.jpg",
+    imageUrl: "/images/locations-webp/21.webp",
     description: "공중섬 위",
   },
   {
@@ -171,14 +171,14 @@ export const locations: Location[] = [
     type: "g",
     x: 66.9,
     y: 47.9,
-    imageUrl: "/images/locations/22.jpg",
+    imageUrl: "/images/locations-webp/22.webp",
   },
   {
     id: "23",
     type: "g",
     x: 70.2,
     y: 34.3,
-    imageUrl: "/images/locations/23.jpg",
+    imageUrl: "/images/locations-webp/23.webp",
     description: "절벽 중간",
   },
   {
@@ -186,7 +186,7 @@ export const locations: Location[] = [
     type: "g",
     x: 55.4,
     y: 62.1,
-    imageUrl: "/images/locations/24.jpg",
+    imageUrl: "/images/locations-webp/24.webp",
     description: "바위 둘 사이 발판",
   },
   {
@@ -194,7 +194,7 @@ export const locations: Location[] = [
     type: "g",
     x: 65.9,
     y: 69.3,
-    imageUrl: "/images/locations/25.jpg",
+    imageUrl: "/images/locations-webp/25.webp",
     description: "절벽 위",
   },
   {
@@ -202,7 +202,7 @@ export const locations: Location[] = [
     type: "g",
     x: 64.3,
     y: 62.6,
-    imageUrl: "/images/locations/26.jpg",
+    imageUrl: "/images/locations-webp/26.webp",
     description: "공중섬 위",
   },
   {
@@ -210,14 +210,14 @@ export const locations: Location[] = [
     type: "w",
     x: 62.5,
     y: 63.6,
-    imageUrl: "/images/locations/27.jpg",
+    imageUrl: "/images/locations-webp/27.webp",
   },
   {
     id: "28",
     type: "g",
     x: 59.3,
     y: 58.5,
-    imageUrl: "/images/locations/28.jpg",
+    imageUrl: "/images/locations-webp/28.webp",
     description: "공중섬 절벽 중간 모서리",
   },
   {
@@ -225,7 +225,7 @@ export const locations: Location[] = [
     type: "g",
     x: 59,
     y: 59.1,
-    imageUrl: "/images/locations/29.jpg",
+    imageUrl: "/images/locations-webp/29.webp",
     description: "공중섬 위",
   },
   {
@@ -233,7 +233,7 @@ export const locations: Location[] = [
     type: "w",
     x: 58.3,
     y: 63,
-    imageUrl: "/images/locations/30.jpg",
+    imageUrl: "/images/locations-webp/30.webp",
     description: "물 웅덩이",
   },
   {
@@ -241,7 +241,7 @@ export const locations: Location[] = [
     type: "g",
     x: 43.7,
     y: 28.9,
-    imageUrl: "/images/locations/31.jpg",
+    imageUrl: "/images/locations-webp/31.webp",
     description: "절벽 위",
   },
   {
@@ -249,7 +249,7 @@ export const locations: Location[] = [
     type: "g",
     x: 44.6,
     y: 60.1,
-    imageUrl: "/images/locations/32.jpg",
+    imageUrl: "/images/locations-webp/32.webp",
     description: "폭포 옆 절벽 위",
   },
   {
@@ -257,7 +257,7 @@ export const locations: Location[] = [
     type: "g",
     x: 65.3,
     y: 65.9,
-    imageUrl: "/images/locations/33.jpg",
+    imageUrl: "/images/locations-webp/33.webp",
     description: "절벽 중간",
   },
   {
@@ -265,7 +265,7 @@ export const locations: Location[] = [
     type: "g",
     x: 65.4,
     y: 62.8,
-    imageUrl: "/images/locations/34.jpg",
+    imageUrl: "/images/locations-webp/34.webp",
     description: "절벽 중간 아래 쪽",
   },
   {
@@ -273,7 +273,7 @@ export const locations: Location[] = [
     type: "g",
     x: 67.9,
     y: 59.7,
-    imageUrl: "/images/locations/35.jpg",
+    imageUrl: "/images/locations-webp/35.webp",
     description: "공중섬 위",
   },
   {
@@ -281,7 +281,7 @@ export const locations: Location[] = [
     type: "g",
     x: 44.4,
     y: 54,
-    imageUrl: "/images/locations/36.jpg",
+    imageUrl: "/images/locations-webp/36.webp",
     description: "던전 입구 왼쪽",
   },
   {
@@ -289,7 +289,7 @@ export const locations: Location[] = [
     type: "g",
     x: 66.1,
     y: 62.5,
-    imageUrl: "/images/locations/37.jpg",
+    imageUrl: "/images/locations-webp/37.webp",
     description: "절벽 아래 쪽",
   },
   {
@@ -297,7 +297,7 @@ export const locations: Location[] = [
     type: "g",
     x: 68,
     y: 59.3,
-    imageUrl: "/images/locations/38.jpg",
+    imageUrl: "/images/locations-webp/38.webp",
     description: "공중섬 위",
   },
   {
@@ -305,7 +305,7 @@ export const locations: Location[] = [
     type: "g",
     x: 70.7,
     y: 31.4,
-    imageUrl: "/images/locations/39.jpg",
+    imageUrl: "/images/locations-webp/39.webp",
     description: "절벽 아래",
   },
   {
@@ -313,7 +313,7 @@ export const locations: Location[] = [
     type: "g",
     x: 64,
     y: 54.5,
-    imageUrl: "/images/locations/40.jpg",
+    imageUrl: "/images/locations-webp/40.webp",
     description: "절벽 증긴",
   },
   {
@@ -321,7 +321,7 @@ export const locations: Location[] = [
     type: "g",
     x: 60.3,
     y: 52.6,
-    imageUrl: "/images/locations/41.jpg",
+    imageUrl: "/images/locations-webp/41.webp",
     description: "절벽 윗쪽 모서리",
   },
   {
@@ -329,7 +329,7 @@ export const locations: Location[] = [
     type: "g",
     x: 47.9,
     y: 73.3,
-    imageUrl: "/images/locations/42.jpg",
+    imageUrl: "/images/locations-webp/42.webp",
     description: "나무 아래 바위 위",
   },
   {
@@ -337,7 +337,7 @@ export const locations: Location[] = [
     type: "g",
     x: 64.9,
     y: 68,
-    imageUrl: "/images/locations/43.jpg",
+    imageUrl: "/images/locations-webp/43.webp",
     description: "절벽 위",
   },
   {
@@ -345,7 +345,7 @@ export const locations: Location[] = [
     type: "g",
     x: 65.2,
     y: 50.7,
-    imageUrl: "/images/locations/44.jpg",
+    imageUrl: "/images/locations-webp/44.webp",
     description: "성벽 위",
   },
   {
@@ -353,7 +353,7 @@ export const locations: Location[] = [
     type: "g",
     x: 65.3,
     y: 49.5,
-    imageUrl: "/images/locations/45.jpg",
+    imageUrl: "/images/locations-webp/45.webp",
     description: "성벽 위",
   },
   {
@@ -361,7 +361,7 @@ export const locations: Location[] = [
     type: "g",
     x: 65.6,
     y: 37.1,
-    imageUrl: "/images/locations/46.jpg",
+    imageUrl: "/images/locations-webp/46.webp",
     description: "절벽 위",
   },
   {
@@ -369,7 +369,7 @@ export const locations: Location[] = [
     type: "g",
     x: 52.9,
     y: 39.9,
-    imageUrl: "/images/locations/47.jpg",
+    imageUrl: "/images/locations-webp/47.webp",
     description: "절벽 중간 모서리",
   },
   {
@@ -377,7 +377,7 @@ export const locations: Location[] = [
     type: "g",
     x: 52.4,
     y: 39.7,
-    imageUrl: "/images/locations/48.jpg",
+    imageUrl: "/images/locations-webp/48.webp",
     description: "절벽 위",
   },
   {
@@ -385,7 +385,7 @@ export const locations: Location[] = [
     type: "g",
     x: 65,
     y: 642,
-    imageUrl: "/images/locations/49.jpg",
+    imageUrl: "/images/locations-webp/49.webp",
     description: "절벽 위",
   },
   {
@@ -393,7 +393,7 @@ export const locations: Location[] = [
     type: "g",
     x: 63.1,
     y: 63.4,
-    imageUrl: "/images/locations/50.jpg",
+    imageUrl: "/images/locations-webp/50.webp",
     description: "절벽 위",
   },
   {
@@ -401,7 +401,7 @@ export const locations: Location[] = [
     type: "g",
     x: 61.2,
     y: 52.8,
-    imageUrl: "/images/locations/51.jpg",
+    imageUrl: "/images/locations-webp/51.webp",
     description: "절벽 중간",
   },
   {
@@ -409,7 +409,7 @@ export const locations: Location[] = [
     type: "g",
     x: 42.7,
     y: 35.9,
-    imageUrl: "/images/locations/52.jpg",
+    imageUrl: "/images/locations-webp/52.webp",
     description: "버섯 위",
   },
   {
@@ -417,7 +417,7 @@ export const locations: Location[] = [
     type: "g",
     x: 42.2,
     y: 37.4,
-    imageUrl: "/images/locations/53.jpg",
+    imageUrl: "/images/locations-webp/53.webp",
     description: "절벽 중간 모서리",
   },
   {
@@ -425,7 +425,7 @@ export const locations: Location[] = [
     type: "g",
     x: 46.7,
     y: 60.4,
-    imageUrl: "/images/locations/54.jpg",
+    imageUrl: "/images/locations-webp/54.webp",
     description: "절벽 위쪽",
   },
   {
@@ -433,7 +433,7 @@ export const locations: Location[] = [
     type: "g",
     x: 58.6,
     y: 74.1,
-    imageUrl: "/images/locations/55.jpg",
+    imageUrl: "/images/locations-webp/55.webp",
     description: "절벽 위 바위 사이",
   },
   {
@@ -441,7 +441,7 @@ export const locations: Location[] = [
     type: "g",
     x: 38.7,
     y: 32.3,
-    imageUrl: "/images/locations/56.jpg",
+    imageUrl: "/images/locations-webp/56.webp",
     description: "공중섬 위",
   },
   {
@@ -449,7 +449,7 @@ export const locations: Location[] = [
     type: "g",
     x: 66.4,
     y: 59.8,
-    imageUrl: "/images/locations/57.jpg",
+    imageUrl: "/images/locations-webp/57.webp",
     description: "절벽 위",
   },
   {
@@ -457,7 +457,7 @@ export const locations: Location[] = [
     type: "g",
     x: 55.7,
     y: 27.8,
-    imageUrl: "/images/locations/58.jpg",
+    imageUrl: "/images/locations-webp/58.webp",
     description: "절벽 위",
   },
   {
@@ -465,21 +465,21 @@ export const locations: Location[] = [
     type: "g",
     x: 44.4,
     y: 55.2,
-    imageUrl: "/images/locations/59.jpg",
+    imageUrl: "/images/locations-webp/59.webp",
   },
   {
     id: "60",
     type: "g",
     x: 48.7,
     y: 71.9,
-    imageUrl: "/images/locations/60.jpg",
+    imageUrl: "/images/locations-webp/60.webp",
   },
   {
     id: "61",
     type: "g",
     x: 57,
     y: 74.6,
-    imageUrl: "/images/locations/61.jpg",
+    imageUrl: "/images/locations-webp/61.webp",
     description: "절벽 위",
   },
   {
@@ -487,7 +487,7 @@ export const locations: Location[] = [
     type: "g",
     x: 52.1,
     y: 60.5,
-    imageUrl: "/images/locations/62.jpg",
+    imageUrl: "/images/locations-webp/62.webp",
     description: "폭포 보고 오른쪽 절벽 중간",
   },
   {
@@ -495,7 +495,7 @@ export const locations: Location[] = [
     type: "g",
     x: 51.6,
     y: 66.8,
-    imageUrl: "/images/locations/63.jpg",
+    imageUrl: "/images/locations-webp/63.webp",
     description: "절벽 중간",
   },
   {
@@ -503,7 +503,7 @@ export const locations: Location[] = [
     type: "g",
     x: 48.5,
     y: 32.7,
-    imageUrl: "/images/locations/64.jpg",
+    imageUrl: "/images/locations-webp/64.webp",
     description: "버섯 나무 아래 바위 위",
   },
   {
@@ -511,14 +511,14 @@ export const locations: Location[] = [
     type: "g",
     x: 52.3,
     y: 58.4,
-    imageUrl: "/images/locations/65.jpg",
+    imageUrl: "/images/locations-webp/65.webp",
   },
   {
     id: "66",
     type: "g",
     x: 52.1,
     y: 60.5,
-    imageUrl: "/images/locations/66.jpg",
+    imageUrl: "/images/locations-webp/66.webp",
     description: "폭포 보고 오른쪽 절벽 중간",
   },
   {
@@ -526,7 +526,7 @@ export const locations: Location[] = [
     type: "g",
     x: 55.4,
     y: 20.2,
-    imageUrl: "/images/locations/67.jpg",
+    imageUrl: "/images/locations-webp/67.webp",
     description: "공중섬 위",
   },
   {
@@ -534,7 +534,7 @@ export const locations: Location[] = [
     type: "g",
     x: 65,
     y: 64.2,
-    imageUrl: "/images/locations/68.jpg",
+    imageUrl: "/images/locations-webp/68.webp",
     description: "절벽 위",
   },
   {
@@ -542,7 +542,7 @@ export const locations: Location[] = [
     type: "g",
     x: 65.4,
     y: 61.5,
-    imageUrl: "/images/locations/69.jpg",
+    imageUrl: "/images/locations-webp/69.webp",
     description: "절벽 위",
   },
   {
@@ -550,14 +550,14 @@ export const locations: Location[] = [
     type: "w",
     x: 59.1,
     y: 68.7,
-    imageUrl: "/images/locations/70.jpg",
+    imageUrl: "/images/locations-webp/70.webp",
   },
   {
     id: "71",
     type: "g",
     x: 54.9,
     y: 42,
-    imageUrl: "/images/locations/71.jpg",
+    imageUrl: "/images/locations-webp/71.webp",
     description: "절벽 중간",
   },
   {
@@ -565,7 +565,7 @@ export const locations: Location[] = [
     type: "g",
     x: 47.1,
     y: 69.8,
-    imageUrl: "/images/locations/72.jpg",
+    imageUrl: "/images/locations-webp/72.webp",
     description: "나무 뿌리 위",
   },
   {
@@ -573,14 +573,14 @@ export const locations: Location[] = [
     type: "w",
     x: 58.2,
     y: 67.4,
-    imageUrl: "/images/locations/73.jpg",
+    imageUrl: "/images/locations-webp/73.webp",
   },
   {
     id: "74",
     type: "g",
     x: 57.9,
     y: 41.8,
-    imageUrl: "/images/locations/74.jpg",
+    imageUrl: "/images/locations-webp/74.webp",
     description: "절벽 중간",
   },
   {
@@ -588,7 +588,7 @@ export const locations: Location[] = [
     type: "g",
     x: 53.4,
     y: 71.8,
-    imageUrl: "/images/locations/75.jpg",
+    imageUrl: "/images/locations-webp/75.webp",
     description: "절벽 위",
   },
   {
@@ -596,7 +596,7 @@ export const locations: Location[] = [
     type: "g",
     x: 58.5,
     y: 70.2,
-    imageUrl: "/images/locations/76.jpg",
+    imageUrl: "/images/locations-webp/76.webp",
     description: "절벽 중간 발판",
   },
   {
@@ -604,7 +604,7 @@ export const locations: Location[] = [
     type: "g",
     x: 64.3,
     y: 65,
-    imageUrl: "/images/locations/77.jpg",
+    imageUrl: "/images/locations-webp/77.webp",
     description: "절벽 아래쪽 발판",
   },
   {
@@ -612,7 +612,7 @@ export const locations: Location[] = [
     type: "g",
     x: 67.3,
     y: 29.5,
-    imageUrl: "/images/locations/78.jpg",
+    imageUrl: "/images/locations-webp/78.webp",
     description: "절벽 중간",
   },
   {
@@ -620,7 +620,7 @@ export const locations: Location[] = [
     type: "g",
     x: 50.2,
     y: 30.3,
-    imageUrl: "/images/locations/79.jpg",
+    imageUrl: "/images/locations-webp/79.webp",
     description: "절벽 위",
   },
   {
@@ -628,7 +628,7 @@ export const locations: Location[] = [
     type: "g",
     x: 56.8,
     y: 62.5,
-    imageUrl: "/images/locations/80.jpg",
+    imageUrl: "/images/locations-webp/80.webp",
     description: "절벽 중간",
   },
   {
@@ -636,7 +636,7 @@ export const locations: Location[] = [
     type: "g",
     x: 66,
     y: 58.9,
-    imageUrl: "/images/locations/81.jpg",
+    imageUrl: "/images/locations-webp/81.webp",
     description: "절벽 아래",
   },
   {
@@ -644,7 +644,7 @@ export const locations: Location[] = [
     type: "w",
     x: 62.4,
     y: 62.4,
-    imageUrl: "/images/locations/82.jpg",
+    imageUrl: "/images/locations-webp/82.webp",
     description: "절벽 아래 강",
   },
   {
@@ -652,7 +652,7 @@ export const locations: Location[] = [
     type: "g",
     x: 48.9,
     y: 45.3,
-    imageUrl: "/images/locations/83.jpg",
+    imageUrl: "/images/locations-webp/83.webp",
     description: "절벽 중간",
   },
   {
@@ -660,7 +660,7 @@ export const locations: Location[] = [
     type: "g",
     x: 65.6,
     y: 40.6,
-    imageUrl: "/images/locations/84.jpg",
+    imageUrl: "/images/locations-webp/84.webp",
     description: "절벽 위",
   },
   {
@@ -668,7 +668,7 @@ export const locations: Location[] = [
     type: "g",
     x: 68.6,
     y: 28.2,
-    imageUrl: "/images/locations/85.jpg",
+    imageUrl: "/images/locations-webp/85.webp",
     description: "나무 둘 사이",
   },
   {
@@ -676,7 +676,7 @@ export const locations: Location[] = [
     type: "g",
     x: 60.1,
     y: 58,
-    imageUrl: "/images/locations/86.jpg",
+    imageUrl: "/images/locations-webp/86.webp",
     description: "공중섬 위",
   },
   {
@@ -684,7 +684,7 @@ export const locations: Location[] = [
     type: "g",
     x: 34.2,
     y: 85.6,
-    imageUrl: "/images/locations/87.jpg",
+    imageUrl: "/images/locations-webp/87.webp",
     description: "절벽 아래",
   },
   {
@@ -692,7 +692,7 @@ export const locations: Location[] = [
     type: "g",
     x: 34.7,
     y: 95.6,
-    imageUrl: "/images/locations/88.jpg",
+    imageUrl: "/images/locations-webp/88.webp",
     description: "절벽 중간",
   },
   {
@@ -700,7 +700,7 @@ export const locations: Location[] = [
     type: "g",
     x: 31.8,
     y: 83.7,
-    imageUrl: "/images/locations/89.jpg",
+    imageUrl: "/images/locations-webp/89.webp",
     description: "절벽 위",
   },
   {
@@ -708,7 +708,7 @@ export const locations: Location[] = [
     type: "g",
     x: 59.3,
     y: 72.3,
-    imageUrl: "/images/locations/90.jpg",
+    imageUrl: "/images/locations-webp/90.webp",
     description: "다리 위",
   },
   {
@@ -716,7 +716,7 @@ export const locations: Location[] = [
     type: "g",
     x: 58.9,
     y: 6,
-    imageUrl: "/images/locations/91.jpg",
+    imageUrl: "/images/locations-webp/91.webp",
     description: "섬 위",
   },
   {
@@ -724,7 +724,7 @@ export const locations: Location[] = [
     type: "g",
     x: 59.1,
     y: 3.1,
-    imageUrl: "/images/locations/92.jpg",
+    imageUrl: "/images/locations-webp/92.webp",
     description: "섬 위",
   },
   {
@@ -732,7 +732,7 @@ export const locations: Location[] = [
     type: "g",
     x: 62.5,
     y: 5.4,
-    imageUrl: "/images/locations/93.jpg",
+    imageUrl: "/images/locations-webp/93.webp",
     description: "바위 둘 사이",
   },
   {
@@ -740,13 +740,41 @@ export const locations: Location[] = [
     type: "w",
     x: 43.7,
     y: 31.6,
-    imageUrl: "/images/locations/94.jpg",
+    imageUrl: "/images/locations-webp/94.webp",
   },
   {
     id: "95",
     type: "w",
     x: 44.95,
     y: 31.5,
-    imageUrl: "/images/locations/95.jpg",
+    imageUrl: "/images/locations-webp/95.webp",
+  },
+  {
+    id: "96",
+    type: "g",
+    x: 49.4,
+    y: 55.2,
+    imageUrl: "/images/locations-webp/96.webp",
+  },
+  {
+    id: "97",
+    type: "g",
+    x: 50,
+    y: 43.1,
+    imageUrl: "/images/locations-webp/97.webp",
+  },
+  {
+    id: "98",
+    type: "g",
+    x: 50.3,
+    y: 42.1,
+    imageUrl: "/images/locations-webp/98.webp",
+  },
+  {
+    id: "99",
+    type: "g",
+    x: 49.7,
+    y: 43.6,
+    imageUrl: "/images/locations-webp/99.webp",
   },
 ];

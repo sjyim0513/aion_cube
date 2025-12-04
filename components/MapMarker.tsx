@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, memo } from "react";
 import { Location } from "@/types/location";
 import MarkerIcon from "./MarkerIcon";
 
@@ -10,11 +10,7 @@ interface MapMarkerProps {
   scale: number;
 }
 
-export default function MapMarker({
-  location,
-  onClick,
-  scale,
-}: MapMarkerProps) {
+function MapMarker({ location, onClick, scale }: MapMarkerProps) {
   // type에 따라 색상 결정
   const getColor = () => {
     if (location.type === "g") {
@@ -74,3 +70,5 @@ export default function MapMarker({
     </button>
   );
 }
+
+export default memo(MapMarker);

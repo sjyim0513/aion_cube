@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import { Location } from "@/types/location";
 
 interface LocationModalProps {
@@ -7,10 +8,7 @@ interface LocationModalProps {
   onClose: () => void;
 }
 
-export default function LocationModal({
-  location,
-  onClose,
-}: LocationModalProps) {
+function LocationModal({ location, onClose }: LocationModalProps) {
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75"
@@ -20,25 +18,37 @@ export default function LocationModal({
         className="relative bg-white rounded-lg shadow-xl max-w-6xl max-h-[95vh] overflow-auto m-4"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* 닫기 버튼 */}
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl font-bold z-10"
-          aria-label="닫기"
-        >
-          ×
-        </button>
-
         {/* 상세 이미지 */}
         <div className="p-6">
           {location.description && (
-            <p className="text-gray-600 mb-4 text-lg">{location.description}</p>
+            <div className="flex gap-2 mb-4">
+              <div className="flex-1 bg-gray-200 py-3 px-4 rounded-lg">
+                <p className="text-gray-600 text-lg">{location.description}</p>
+              </div>
+              <button
+                onClick={onClose}
+                className="bg-red-200 hover:bg-red-300 text-gray-700 hover:text-gray-900 text-3xl font-bold px-4 rounded-lg flex items-center justify-center transition-colors"
+                aria-label="닫기"
+              >
+                ×
+              </button>
+            </div>
+          )}
+          {!location.description && (
+            <button
+              onClick={onClose}
+              className="absolute top-4 right-4 bg-red-200 hover:bg-red-200 text-gray-700 hover:text-gray-900 text-3xl font-bold px-4 py-2 rounded-lg z-10 transition-colors"
+              aria-label="닫기"
+            >
+              ×
+            </button>
           )}
           <div className="relative w-full">
             <img
               src={location.imageUrl}
               alt={location.description || "위치 이미지"}
               className="w-full h-auto rounded"
+              loading="lazy"
               onError={(e) => {
                 // 이미지 로드 실패 시 플레이스홀더 표시
                 const target = e.target as HTMLImageElement;
@@ -52,3 +62,5 @@ export default function LocationModal({
     </div>
   );
 }
+
+export default memo(LocationModal);
