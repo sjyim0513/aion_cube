@@ -225,6 +225,54 @@ export default function Map({ mapImageUrl, locations }: MapProps) {
     ));
   }, [showGrid]);
 
+  // 가상화: 화면에 보이는 마커만 필터링
+  const visibleMarkers = useMemo(() => {
+    if (!mapContainerRef.current || !outerContainerRef.current) {
+      return locations;
+    }
+
+    const outerRect = outerContainerRef.current.getBoundingClientRect();
+    const mapRect = mapContainerRef.current.getBoundingClientRect();
+
+    // 뷰포트 크기 (스케일 적용 전)
+    const viewportWidth = outerRect.width;
+    const viewportHeight = outerRect.height;
+
+    // 지도 컨테이너 크기 (스케일 적용 전)
+    const containerWidth = mapRect.width / scale;
+    const containerHeight = mapRect.height / scale;
+
+    // 뷰포트가 지도상에서 차지하는 영역 계산 (퍼센트)
+    // 마커 위치에 여유를 두기 위해 padding 추가 (5%)
+    const padding = 10;
+    const viewportLeftPercent = Math.max(
+      -padding,
+      ((0 - position.x) / scale / containerWidth) * 100
+    );
+    const viewportRightPercent = Math.min(
+      100 + padding,
+      ((viewportWidth - position.x) / scale / containerWidth) * 100
+    );
+    const viewportTopPercent = Math.max(
+      -padding,
+      ((0 - position.y) / scale / containerHeight) * 100
+    );
+    const viewportBottomPercent = Math.min(
+      100 + padding,
+      ((viewportHeight - position.y) / scale / containerHeight) * 100
+    );
+
+    // 화면에 보이는 마커만 필터링
+    return locations.filter((location) => {
+      return (
+        location.x >= viewportLeftPercent &&
+        location.x <= viewportRightPercent &&
+        location.y >= viewportTopPercent &&
+        location.y <= viewportBottomPercent
+      );
+    });
+  }, [locations, scale, position.x, position.y]);
+
   return (
     <div
       ref={outerContainerRef}
@@ -322,13 +370,13 @@ export default function Map({ mapImageUrl, locations }: MapProps) {
           </div>
         )}
 
-        {/* 아이콘 마커들 - 드래그 중에는 포인터 이벤트 비활성화 */}
+        {/* 아이콘 마커들 - 가상화 적용: 화면에 보이는 마커만 렌더링 */}
         <div
           style={{
             pointerEvents: isDragging ? "none" : "auto",
           }}
         >
-          {locations.map((location) => (
+          {visibleMarkers.map((location) => (
             <MapMarker
               key={location.id}
               location={location}
