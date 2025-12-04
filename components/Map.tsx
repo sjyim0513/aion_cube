@@ -38,45 +38,62 @@ export default function Map({ mapImageUrl, locations }: MapProps) {
   const outerContainerRef = useRef<HTMLDivElement>(null);
   const rafRef = useRef<number | null>(null);
   const lastMousePositionRef = useRef<{ x: number; y: number } | null>(null);
+  const wheelThrottleRef = useRef<number | null>(null);
+  const dragThrottleRef = useRef<number | null>(null);
 
-  // 스크롤로 확대/축소 (마우스 위치 중심)
-  const handleWheel = (e: WheelEvent<HTMLDivElement>) => {
-    e.preventDefault();
+  // 스크롤로 확대/축소 (마우스 위치 중심) - Throttle 적용
+  const handleWheel = useCallback(
+    (e: WheelEvent<HTMLDivElement>) => {
+      e.preventDefault();
 
-    // Shift 키가 눌려있으면 좌우 이동
-    if (e.shiftKey) {
-      const deltaX = e.deltaY; // 스크롤 방향에 따라 좌우 이동
-      setPosition((prev) => ({
-        x: prev.x - deltaX,
-        y: prev.y,
-      }));
-      return;
-    }
+      // Throttle: 16ms (약 60fps)
+      if (wheelThrottleRef.current) {
+        return;
+      }
 
-    // 일반 스크롤은 확대/축소
-    const delta = e.deltaY > 0 ? -0.5 : 0.5;
-    const newScale = Math.max(1, Math.min(8, scale + delta));
+      wheelThrottleRef.current = requestAnimationFrame(() => {
+        wheelThrottleRef.current = null;
 
-    if (outerContainerRef.current) {
-      // 외부 컨테이너(변환되지 않은) 기준으로 마우스 위치 계산
-      const rect = outerContainerRef.current.getBoundingClientRect();
-      const mouseX = e.clientX - rect.left;
-      const mouseY = e.clientY - rect.top;
+        // Shift 키가 눌려있으면 좌우 이동
+        if (e.shiftKey) {
+          const deltaX = e.deltaY; // 스크롤 방향에 따라 좌우 이동
+          setPosition((prev) => ({
+            x: prev.x - deltaX,
+            y: prev.y,
+          }));
+          return;
+        }
 
-      // 현재 마우스 위치에서 지도상의 실제 좌표 계산
-      // (마우스 위치 - 현재 위치) / 현재 스케일 = 지도상 좌표
-      const mapX = (mouseX - position.x) / scale;
-      const mapY = (mouseY - position.y) / scale;
+        // 일반 스크롤은 확대/축소
+        const delta = e.deltaY > 0 ? -0.5 : 0.5;
+        setScale((prevScale) => {
+          const newScale = Math.max(1, Math.min(8, prevScale + delta));
 
-      // 새로운 스케일에서 마우스 위치가 동일한 지도상 좌표를 가리키도록 위치 조정
-      // 새로운 위치 = 마우스 위치 - (지도상 좌표 * 새로운 스케일)
-      const newX = mouseX - mapX * newScale;
-      const newY = mouseY - mapY * newScale;
+          if (outerContainerRef.current) {
+            // 외부 컨테이너(변환되지 않은) 기준으로 마우스 위치 계산
+            const rect = outerContainerRef.current.getBoundingClientRect();
+            const mouseX = e.clientX - rect.left;
+            const mouseY = e.clientY - rect.top;
 
-      setScale(newScale);
-      setPosition({ x: newX, y: newY });
-    }
-  };
+            // 현재 마우스 위치에서 지도상의 실제 좌표 계산
+            // (마우스 위치 - 현재 위치) / 현재 스케일 = 지도상 좌표
+            const mapX = (mouseX - position.x) / prevScale;
+            const mapY = (mouseY - position.y) / prevScale;
+
+            // 새로운 스케일에서 마우스 위치가 동일한 지도상 좌표를 가리키도록 위치 조정
+            // 새로운 위치 = 마우스 위치 - (지도상 좌표 * 새로운 스케일)
+            const newX = mouseX - mapX * newScale;
+            const newY = mouseY - mapY * newScale;
+
+            setPosition({ x: newX, y: newY });
+          }
+
+          return newScale;
+        });
+      });
+    },
+    [position.x, position.y]
+  );
 
   // 드래그 시작
   const handleMouseDown = (e: MouseEvent<HTMLDivElement>) => {
@@ -136,7 +153,7 @@ export default function Map({ mapImageUrl, locations }: MapProps) {
     [showGrid, scale, position.x, position.y]
   );
 
-  // 드래그 중
+  // 드래그 중 - Throttle 적용
   const handleMouseMove = useCallback(
     (e: MouseEvent<HTMLDivElement>) => {
       if (!isDragging) {
@@ -148,9 +165,16 @@ export default function Map({ mapImageUrl, locations }: MapProps) {
           calculateMousePosition(e.clientX, e.clientY);
         });
       } else {
-        setPosition({
-          x: e.clientX - dragStart.x,
-          y: e.clientY - dragStart.y,
+        // 드래그 중에는 throttle 적용 (16ms, 약 60fps)
+        if (dragThrottleRef.current) {
+          return;
+        }
+        dragThrottleRef.current = requestAnimationFrame(() => {
+          dragThrottleRef.current = null;
+          setPosition({
+            x: e.clientX - dragStart.x,
+            y: e.clientY - dragStart.y,
+          });
         });
       }
     },
@@ -171,6 +195,35 @@ export default function Map({ mapImageUrl, locations }: MapProps) {
   const handleCloseModal = () => {
     setSelectedLocation(null);
   };
+
+  // 그리드 라벨 메모이제이션
+  const gridLabels = useMemo(() => {
+    if (!showGrid) return null;
+    return Array.from({ length: 11 }).map((_, i) => (
+      <div key={`x-${i}`}>
+        <div
+          className="absolute text-white text-xs font-mono bg-black bg-opacity-50 px-1"
+          style={{
+            left: `${i * 10}%`,
+            top: 0,
+            transform: "translateX(-50%)",
+          }}
+        >
+          {i * 10}%
+        </div>
+        <div
+          className="absolute text-white text-xs font-mono bg-black bg-opacity-50 px-1"
+          style={{
+            left: 0,
+            top: `${i * 10}%`,
+            transform: "translateY(-50%)",
+          }}
+        >
+          {i * 10}%
+        </div>
+      </div>
+    ));
+  }, [showGrid]);
 
   return (
     <div
@@ -264,43 +317,26 @@ export default function Map({ mapImageUrl, locations }: MapProps) {
               backgroundSize: "10% 10%",
             }}
           >
-            {/* 그리드 라벨 (10% 간격) */}
-            {Array.from({ length: 11 }).map((_, i) => (
-              <div key={`x-${i}`}>
-                <div
-                  className="absolute text-white text-xs font-mono bg-black bg-opacity-50 px-1"
-                  style={{
-                    left: `${i * 10}%`,
-                    top: 0,
-                    transform: "translateX(-50%)",
-                  }}
-                >
-                  {i * 10}%
-                </div>
-                <div
-                  className="absolute text-white text-xs font-mono bg-black bg-opacity-50 px-1"
-                  style={{
-                    left: 0,
-                    top: `${i * 10}%`,
-                    transform: "translateY(-50%)",
-                  }}
-                >
-                  {i * 10}%
-                </div>
-              </div>
-            ))}
+            {/* 그리드 라벨 (10% 간격) - 메모이제이션됨 */}
+            {gridLabels}
           </div>
         )}
 
-        {/* 아이콘 마커들 */}
-        {locations.map((location) => (
-          <MapMarker
-            key={location.id}
-            location={location}
-            onClick={() => handleMarkerClick(location)}
-            scale={scale}
-          />
-        ))}
+        {/* 아이콘 마커들 - 드래그 중에는 포인터 이벤트 비활성화 */}
+        <div
+          style={{
+            pointerEvents: isDragging ? "none" : "auto",
+          }}
+        >
+          {locations.map((location) => (
+            <MapMarker
+              key={location.id}
+              location={location}
+              onClick={() => handleMarkerClick(location)}
+              scale={scale}
+            />
+          ))}
+        </div>
       </div>
 
       {/* 상세 이미지 모달 */}

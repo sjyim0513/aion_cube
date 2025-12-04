@@ -44,6 +44,9 @@ function MapMarker({ location, onClick, scale }: MapMarkerProps) {
         e.stopPropagation();
         onClick();
       }}
+      onMouseDown={(e) => {
+        e.stopPropagation(); // 지도 드래그 시작 방지
+      }}
       className="absolute cursor-pointer z-10"
       style={{
         left: `${location.x}%`,
